@@ -1,0 +1,11 @@
+DISCUSSION UPLOADED IMAGES CLASSIFICATION:
+
+1. None of the model architecture classified the breed of Dog_01 and Dog_02 correctly as greyhound. Alexnet classified the greyhound as whippet, resnet and vgg classified the greyhound as toy terrier
+2. For the human eye Alexnet appeared to be closer to greyhound with the classification of whippet, instead of toy terrier as classified in resnet and vgg
+3. All three models correctly classified Wolf_01.jpg and Dragon_01.jpg to not be dogs. All three models correctly matched Wolf.01.jpg as wolf. 
+4. In regards of Dog_01.jpg/Dog_02.jpg Alexnet appeared to be result closer to greyhound with the classification of whippet, instead of toy terrier as classified in resnet and vgg, however Alexnet completely misclassified Dragon_01.jpg as a knot, whereas resnet and vgg both appeared to result closer with triceratops
+
+DISCUSSION PET IMAGES CLASSIFICATION:
+
+1. VGG is the most effective and accurate architecture for classifiying Dog_breeds and Dogs in general, the results of my functions equal the results given in the final results of this project. VGG correctly classifies the breeds in 93,3% of cases at a total runtime of 35 sec (0:0:35) 
+2. For real life application at the dog show the Resnet architecture can be regarded as an alternative and an almost equal choice of instrument. The breed classification is correct in 90% of cases, which is slighter lower than VGG, however the runtime is online 5 sec (0:0:05) which can be of organizatorial advantage regarding work flow at the show. Since no sane dog handler will try to register an item or animal that is not a dog, the misclassification of 10% of images that are not dogs, can be disregarded for practical purposes
