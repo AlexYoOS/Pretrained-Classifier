@@ -31,16 +31,18 @@ from classifier import classifier
 # 
 def classify_images(images_dir, results_dic, model):
     for key in results_dic:
-        model_label = ""
-        
+                
         model_label = classifier(images_dir + key, model)
+        
         model_label = model_label.lower().strip()
+        
         truth = results_dic[key][0]
+        
         correct = 1 if truth in model_label else 0
         results_dic[key].extend((model_label, correct))
     
         
-    return None  
+    
 
 """
     Creates classifier labels with classifier function, compares pet labels to 

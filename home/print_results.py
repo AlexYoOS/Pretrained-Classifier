@@ -62,16 +62,16 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    print("\n\n*** Results Summary for CNN Model Architecture:{} ***".format(model.upper()))
-    print("{:20}: {:3d}".format('N Images', results_stats_dic['n_images']))
-    print("{:20}: {:3d}".format('N Dog Images', results_stats_dic['n_dogs_img']))
-    
-    print("{:20}: {:3d}".format('N Not-Dog Images', results_stats_dic['n_notdogs_img']))
+    print(f"\n\n*** Results Summary for CNN Model Architecture:{model.upper()} ***")
     print()
+    print(f"{'N Images':20}: {results_stats_dic['n_images']:3d}")
+    print(f"{'N Dog Images':20}: {results_stats_dic['n_dogs_img']:3d}")
+    print(f"{'N Not-Dog Images':20}: {results_stats_dic['n_notdogs_img']:3d}")
+    print()
+    
     for key, value in results_stats_dic.items():
         if key.startswith("pct_"):
-            print("{}:{}".format(key,results_stats_dic[key]))
-            
+            print(f"{key:20}:{results_stats_dic[key]:>7}")
             
     if (print_incorrect_dogs and 
         ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'])
@@ -79,16 +79,16 @@ def print_results(results_dic, results_stats_dic, model,
        ):
         print("\nINCORRECT Dog/NOT Dog Assignments:")        
         for key in results_dic:
-            if ((results_dic[key][3] == 1 and results_dic[key][4] == 0) or (results_dic[key][3] == 0 and results_dic[key][4] == 1)):
-                print("Image {} classification incorrect as {}".format(key, results_dic[key][1]))
+            if (sum(results_dic[key][3:]) == 1):
+                print(f"Image of {results_dic[key][0]} incorrectly classified as {results_dic[key][1]}")
                 
                 
     if (print_incorrect_breed and 
         (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']) 
        ):
-        print("\nINCORRECT Dog Breed Assignment:")
+        print("\nINCORRECT Dog Breed Assignments:")
         for key in results_dic:
             if ( sum(results_dic[key][3:]) == 2 and
                 results_dic[key][2] == 0 ):
-                print("Image {} classification incorrect as {}".format(key, results_dic[key][1]))
+                print(f"Image of {results_dic[key][0]} incorrectly classified as {results_dic[key][1]}")
                 
